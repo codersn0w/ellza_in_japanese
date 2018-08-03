@@ -1,4 +1,9 @@
 # coding: utf-8
+'''
+Ellza is released under the AGPL-3.0 Licence.
+See the LICENCE file.
+(C) 2018- by ThunderRa1n, <podsn0w@gmail.com>
+'''
 import json, html
 from flask import Flask, render_template, request, jsonify
 from reply_generator import generate_reply
