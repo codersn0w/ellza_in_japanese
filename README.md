@@ -1,3 +1,3 @@
 # ellza_in_japanese
-## How to run
-python webapp.py
+## Usage
+`python webapp.py`
