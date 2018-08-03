@@ -5,6 +5,6 @@
 `python webapp.py` and go to `http://localhost:9999`
 
 ## Official Instance
-[https://ellza.ellpedia.com]: https://ellza.ellpedia.com/
+<https://ellza.ellpedia.com>
 
 ## [License](/LICENSE)
