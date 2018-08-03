@@ -2,4 +2,4 @@
 ## Usage
 `python webapp.py`
 
-## [Licence](/LICENCE)
+## [License](/LICENSE)
