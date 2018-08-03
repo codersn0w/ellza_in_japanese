@@ -17,7 +17,6 @@ def generate_reply(query):
                    '・Wikipediaを検索する際は「w:」<br>・ニュースを検索する際は「n:」<br>'\
                    '・画像を検索する際は「i:」<br>・YouTubeを検索する際は「y:」<br>'\
                    '・Ellza (Bot) と会話する際は「b:」<br>を検索ワードの先頭に入れてください。<br>'\
-                   '[<a href="https://blog.ellpedia.com/term_and_privacy_policy/" target="_blank">規約・プライバシーポリシー</a>]<br>'\
                    '[<a href="https://github.com/thunderra1n/ellza_in_japanese" target="_blank">ソースコード</a>]',
        }]
        return results
