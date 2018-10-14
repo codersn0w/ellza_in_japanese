@@ -18,8 +18,8 @@ def gsearch(query, ua):
     res = req.urlopen(request, timeout=10).read()
     root = lh.fromstring(res.decode('utf-8'))
     base_xpath = root.xpath('.//div[@class="rc"]')
-    title_xpath = './h3/a/text()'
-    link_xpath = './h3/a/@href'
+    title_xpath = './div[@class="r"]/a/h3/text()'
+    link_xpath = './div[@class="r"]/a/@href'
     descr_xpath = './div[@class="s"]/div/span[@class="st"]//text()'
     g_urls = []
     g_wikis = []

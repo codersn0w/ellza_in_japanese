@@ -20,11 +20,11 @@ def bnsearch(query, ua):
     request = req.Request(url=s_url, headers=headers)
     res = req.urlopen(request, timeout=10).read()
     root = lh.fromstring(res.decode('utf-8'))
-    base_xpath = root.xpath('//div[@class="newsitem cardcommon"]/div[@class="caption"]')
+    base_xpath = root.xpath('//div[@class="newsitem cardcommon"]//div[@class="caption"]')
     link_xpath = './div[@class="t_s"]/div[@class="t_t"]/a/@href'
     title_xpath = './div[@class="t_s"]/div[@class="t_t"]/a//text()'
     source_xpath = './div[@class="source"]/a/text()'
-    time_xpath = './div[@class="source"]/span[@class="timestamp"]//text()'
+    time_xpath = './div[@class="source"]/span[2]//text()'
     results = []
     num = 0
     for n in base_xpath:
