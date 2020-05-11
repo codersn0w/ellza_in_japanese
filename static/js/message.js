@@ -16,7 +16,6 @@ if($('#chat_text').val()!='' && $('#chat_text').val().match(/\S/g)){
     type: 'POST',
     data: data,
     success: function(bot){
-        console.log(bot['results']);
         var html = "<div class='bot'><img class='icon' src='../static/images/ell.png'><div class='ellza'>";
         if(Object.keys(bot['results']).length !== 0){
           if(bot['results'][0]['help']){

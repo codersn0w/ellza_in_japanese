@@ -9,6 +9,8 @@
   <link rel="stylesheet" media="screen and (min-width: 570px)"　type="text/css" href="../static/css/main.css">
   <link rel="stylesheet" media="screen and (max-width: 570px)" type="text/css" href="../static/css/main_sp.css">
   <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Ellza">
   <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
@@ -24,18 +26,20 @@
 <body>
   <header><a href="#">Éllpedia Chat</a></header>
   <div id="chat">
-    <div class='copyright'>Ver.1.0 beta&nbsp;&nbsp;©2018 <a href='https://www.ellpedia.com' target='_blank'>Ellpedia</a></div>
+    <div class='copyright'>Ver.1.0 beta&nbsp;&nbsp;©2020 <a href='https://www.ellpedia.com' target='_blank'>Ellpedia</a></div>
     <div class='bot'>
       <img class='icon' src='../static/images/ell.png'>
       <div class='ellza'>
-        こんにちは、Ellpedia Assistantの"Ellza"です。<br>ここではチャット形式でWeb検索等ができます。<br>
-        また、「help:」と入力すると詳細を確認できます。
+        こんにちは、Guestさん。<br>
+        Chatbotの「Ellza」です。<br>
+        ここではチャット形式でWeb検索等ができます。<br>
+        「help:」と入力すると使い方や規約等を確認できます。
       </div>
     </div>
   </div>
     
   <footer>
-    <form id="chat_form" method="post" action="/">
+    <form id="chat_form" method="post" action="/" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
       <input type="text" id="chat_text" name="chat_text" maxlength="70" placeholder="Search"><button type="submit" id="submit_button"><img src="../static/images/submit.png"></button>
     </form>
   </footer>

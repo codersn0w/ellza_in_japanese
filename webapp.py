@@ -2,7 +2,7 @@
 '''
 Ellza is released under the AGPL-3.0 Licence.
 See the LICENCE file.
-(C) 2018- by ThunderRa1n, <podsn0w@gmail.com>
+(C) ThunderRa1n, <podsn0w@gmail.com>
 '''
 import json, html
 from flask import Flask, render_template, request, jsonify
@@ -20,4 +20,4 @@ def home():
 	else:
 		return render_template('index.html')
 
-app.run(port=9999, debug=True)
+app.run(port=9999, debug=False)

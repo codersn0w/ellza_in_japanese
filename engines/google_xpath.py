@@ -4,7 +4,7 @@ import urllib.parse as up
 import lxml.html as lh
 import re, html
 
-def gsearch(query, ua):
+def g_search(query, ua):
   try:
     values = {
       'q': query,
@@ -18,7 +18,7 @@ def gsearch(query, ua):
     res = req.urlopen(request, timeout=10).read()
     root = lh.fromstring(res.decode('utf-8'))
     base_xpath = root.xpath('.//div[@class="rc"]')
-    title_xpath = './div[@class="r"]/a/h3/text()'
+    title_xpath = './div[@class="r"]/a/h3//text()'
     link_xpath = './div[@class="r"]/a/@href'
     descr_xpath = './div[@class="s"]/div/span[@class="st"]//text()'
     g_urls = []

@@ -4,37 +4,41 @@ import urllib.parse as up
 import lxml.html as lh
 import html
 from json import loads
+import re
 
-def gisearch(query, ua):
+def gi_search(query, ua):
   try:
     values = {
       'q': query,
     }
-    s_url = 'http://www.google.co.jp/search?tbm=isch&gws_rd=cr&safe=active&' + up.urlencode(values)
+    s_url = 'http://www.google.com/search?gl=us&hl=en&tbm=isch&gws_rd=cr&safe=active&pws=0&gbv=1&' + up.urlencode(values)
     headers = {
           "User-Agent": ua,
           }
     request = req.Request(url=s_url, headers=headers)
     res = req.urlopen(request, timeout=10).read()
     root = lh.fromstring(res.decode('utf-8'))
-    image_xpath = root.xpath('//div[@class="rg_meta notranslate"]//text()')
+    image_xpath = root.xpath('//table[4]//a')
+    link_xpath = './@href'
+    thumb_xpath = './img/@src'
     results = []
+    rc = re.compile('&sa=U&ved=0.*')
     num = 0
-    while num <= 0:
-      try:
-        imdata = loads(image_xpath[num])
-        if len(imdata['ru']) > 30:
-          d_url = imdata['ru'][:30] + '...'
-        else:
-          d_url = imdata['ru']
-        results.append({'url': html.escape(imdata['ru'], quote=True),
-                    'd_url': html.escape(d_url, quote=True),
-                    'thumb_src': html.escape(imdata['tu'], quote=True),
-                    'img_src': html.escape(imdata['ou'], quote=True),
-                    })
-      except:
+    for im in image_xpath:
+      if num <= 0:
+        url = im.xpath(link_xpath)[0].lstrip('/url?q=')
+        url = rc.sub('', url)
+        thumb_src = im.xpath(thumb_xpath)[0]
+        d_url = url
+        img_src = url
+        results.append({'url': html.escape(url, quote=True),
+          'd_url': html.escape(d_url, quote=True),
+          'thumb_src': html.escape(thumb_src, quote=True),
+          'img_src': html.escape(img_src, quote=True),
+          })
+        num+=1
+      else:
         pass
-      num+=1
     return results
 
   except:
